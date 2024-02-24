@@ -1,4 +1,2 @@
-value = 0 
-#commen
-#oaihda
+value = 00
 
