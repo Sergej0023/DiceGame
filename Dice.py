@@ -1,1 +1,2 @@
-value = 512
+class Dice:
+    pass
