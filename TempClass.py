@@ -3,7 +3,7 @@ import random
 
 def exit():
     SystemExit(1)
-
+test = "test"
 
 def throwDice():        # Dice throw 1-6 random
     throw = random.randint(1, 6)
