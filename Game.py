@@ -1,5 +1,4 @@
-import Dice
-import Player
+import  Player, Dice
 
 class Game:
     def __init__(self, player1, player2):

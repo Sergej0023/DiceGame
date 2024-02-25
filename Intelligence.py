@@ -6,11 +6,15 @@ class Intelligence:
     def rollDecision(self, turnTotal):
         match self.strength:
             case "Easy":
-                return "roll" if turnTotal < 20 else "hold" #From wikipedia, gives an 8% disadvantage
+                 self.decision(20) #From wikipedia, gives an 8% disadvantage
             case "medium":
-                return "roll" if turnTotal < 25 else "hold" #From wikipedia, those are all 
+                self.decision(25) #From wikipedia, those are all 
             case "hard":
-                return "roll" if turnTotal < 15 else "hold" #To be tweaked still
+                self.decision(15) #To be tweaked still
+            
+    def decision(self, turnTotal):
+        return "roll" if turnTotal < turnTotal else "hold"
+
             
             
         
