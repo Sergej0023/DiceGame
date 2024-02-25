@@ -15,4 +15,3 @@ class Dice(Enum):
         def rollDice(self):
               diceRoll = random.choice(list(Dice))
               return diceRoll
-              
