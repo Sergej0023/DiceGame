@@ -1,45 +1,48 @@
-# This is a sample Python script.
+def main():
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    main_menu = """
+    │ - - - - - - - - - - - - - - - │
+    │           Pig Game            │
+    │ - - - - - - - - - - - - - - - │
+    │ 1. Play versus bot            │
+    │ 2. Play with another player   │
+    │ 3. Show highscores            │
+    │ 4. Rules                      │
+    │ 5. Quit                       │
+    │ - - - - - - - - - - - - - - - │
 
+    """
+    bot_menu = """
+    │ - - - - - - - - - - - - - │
+    │     Select Difficulty     │
+    │ - - - - - - - - - - - - - │
+    │ 1. Easy                   │
+    │ 2. Medium                 │
+    │ 3. Hard                   |
+    | 4. Back                   │
+    │ - - - - - - - - - - - - - │
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name, "this is a test"}')  # Press Ctrl+F8 to toggle the breakpoint.
+    """
+    print(main_menu)
+    choice = input("Enter your choice (1 to 5): ")
+    match choice:
+        case "1":
+            print(bot_menu)
+            difficultyLevel = input("Enter your choice (1 to 3): ")
+            # create a new game at this point and pass the choice to game constructor and create new AI there?
 
+        case "2":
+            pass
+        case "3":
+            pass
+        case "4":
+            pass
+        case "5":
+            exit()
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    main()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
-#testing  
-main_menu = """
-│ - - - - - - - - - - - - - - - │
-│           Pig Game            │
-│ - - - - - - - - - - - - - - - │
-│ 1. Play versus bot            │
-│ 2. Play with another player   │
-│ 3. Show highscores            │
-│ 4. Rules                      │
-│ 5. Quit                       │
-│ - - - - - - - - - - - - - - - │
 
-Enter your choice (1 to 5):
-"""
 
-bot_menu = """
-│ - - - - - - - - - - - - - │
-│     Select Difficulty     │
-│ - - - - - - - - - - - - - │
-│ 1. Easy                   │
-│ 2. Medium                 │
-│ 3. Hard                   │
-│ - - - - - - - - - - - - - │
 
-Enter your choice (1 to 3):
-"""
-
-print(main_menu)
-print(bot_menu)
