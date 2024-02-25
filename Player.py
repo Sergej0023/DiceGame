@@ -10,8 +10,5 @@ class Player:
         self.username = username
 
 
-    def throwDice(self):
-        dice = Dice.rollDice()
-        print(dice)
-        if dice != 1:
-            self.score += dice
+    def cheat(self, score):
+        self.score = score
