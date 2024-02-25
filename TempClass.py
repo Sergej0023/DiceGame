@@ -3,9 +3,12 @@ import random
 
 def exit():
     SystemExit(1)
+
+
 test = "test"
 
-def throwDice():        # Dice throw 1-6 random
+
+def throwDice():  # Dice throw 1-6 random
     throw = random.randint(1, 6)
     print(throw)
     return throw
@@ -21,7 +24,7 @@ class Game:
     def __init__(self, username):
         self.user = username
 
-    def play(self): # initiates the gameplay
+    def play(self):  # initiates the gameplay
         while True:
             self.player(self.scorePlayer, self.user)
             self.player(self.scoreAI, self.ai)
@@ -30,7 +33,7 @@ class Game:
             elif not self.win():
                 break
 
-    def points(self, score, player): # keeps track of points?
+    def points(self, score, player):  # keeps track of points?
         temp = 0
 
     def player(self, score, player):  # Algorithm for the gameplay, players turn do stuff
@@ -60,7 +63,7 @@ class Game:
                 print(dice)
                 break
 
-    def choice(self):   #menu choices?
+    def choice(self):  # menu choices?
         # implement Choices menu
 
         choice = input("enter choice")
