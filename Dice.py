@@ -2,15 +2,9 @@ from enum import Enum
 import random
 
 class Dice:
-    class DiceEnum (Enum):
-        ONE = 1
-        TWO = 2
-        THREE = 3
-        FOUR = 4
-        FIVE = 5
-        SIX = 6
+    diceValues= list(range(1, 7))
 
     @staticmethod
     def rollDice():
-        diceRoll = random.choice(list(Dice.DiceEnum))
+        diceRoll = random.choice(list(Dice.diceValues))
         return diceRoll
