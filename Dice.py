@@ -12,5 +12,5 @@ class Dice:
 
     @staticmethod
     def rollDice():
-        diceRoll = random.choice(list(Dice))
+        diceRoll = random.choice(list(Dice.DiceEnum))
         return diceRoll
