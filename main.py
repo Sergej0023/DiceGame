@@ -1,4 +1,6 @@
 import Displays
+import Game
+import Difficulty
 
 def main():
 
@@ -7,8 +9,8 @@ def main():
     match choice:
         case "1":
             Displays.Displays.printBotMenu()
-            difficultyLevel = input("Enter your choice (1 to 3): ")
-            # create a new game at this point and pass the choice to game constructor and create new AI there?
+            difficultyLevel = input("Enter your choice (1 to 4): ")
+
 
         case "2":
             pass
@@ -22,6 +24,13 @@ def main():
 if __name__ == '__main__':
     main()
 
+def verifyDifficultyLvl(difficultyLevel):
+    if (difficultyLevel == "1" or difficultyLevel == "2" or difficultyLevel == "3"):
+        if difficultyLevel in Difficulty:
+            playerName = askPlayerName()
+            game = Game(playerName, Difficulty.Difficulty(difficultyLevel).name)
 
+def askPlayerName():
+    return input("Player name: ")
 
 
