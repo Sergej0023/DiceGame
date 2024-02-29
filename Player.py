@@ -15,3 +15,4 @@ class Player:
 
     def updateScore(self, newScore):
         self.score += newScore
+
