@@ -6,6 +6,7 @@ class HighScore:
     def __init__(self):
         self.allPlayerList = []
         self.filepath = "players_highscores.pkl"
+        self.load_scores()
 
     
     def add_player_to_list(self, player):
