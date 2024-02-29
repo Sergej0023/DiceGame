@@ -1,22 +1,31 @@
 import pickle
+import Player
 
 class HighScore:
      
     def __init__(self):
-        self.all_player_list = []
+        self.allPlayerList = []
+        self.filepath = "players_highscores.pkl"
 
     
     def add_player_to_list(self, player):
-        self.all_player_list.append(player)
+        self.allPlayerList.append(player)
 
-    @staticmethod  
-    def save_scores (self, filepath = "players_highscores.pkl"):
-        self.all_player_list.sort(key = lambda player: player.turns)    # sorting player depending on their turns
-        with open (filepath, "wb") as player_file:                      # dumping into binary file
-            pickle.dump(self.all_player_list, player_file)
+  
+    def save_scores (self):
+        with open (self.filepath, "wb") as playerFile:               
+            pickle.dump(self.allPlayerList, playerFile)
 
-    @staticmethod
-    def load_scores (self, filepath = "players_highscores.pkl"):
-        with open (filepath, "rb") as player_file:
-            enw list
+   
+    def load_scores (self):
+        try: 
+            with open (self.filepath, "rb") as playerFile:
+                self.allPlayerlist = pickle.load(playerFile)
+
+        except FileNotFoundError:
+             print(f"File not found: {self.filepath}. ")
             
+    def displayScores(self, player):
+        self.allPlayerList.sort(key = lambda player: player.turns)
+        for player in self.allPlayerList:
+            print(f"Player name:  {player.name}, Ammount of turns: {player.turns}")
