@@ -2,6 +2,10 @@ import Displays
 import Game
 import Difficulty
 
+
+def askPlayerName():
+    return input("Player name: ")
+
 def main():
 
     Displays.Displays.printMenu()
@@ -10,7 +14,13 @@ def main():
         case "1":
             Displays.Displays.printBotMenu()
             difficultyLevel = input("Enter your choice (1 to 4): ")
-
+            if difficultyLevel in {"1", "2", "3"}:
+                playerName = askPlayerName()
+                game = Game(playerName, Difficulty.Difficulty(int(difficultyLevel)).name)
+            elif difficultyLevel == "4":
+                pass
+            else:
+                print("Enter a valid choice")
 
         case "2":
             pass
@@ -23,14 +33,5 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-def verifyDifficultyLvl(difficultyLevel):
-    if (difficultyLevel == "1" or difficultyLevel == "2" or difficultyLevel == "3"):
-        if difficultyLevel in Difficulty:
-            playerName = askPlayerName()
-            game = Game(playerName, Difficulty.Difficulty(difficultyLevel).name)
-
-def askPlayerName():
-    return input("Player name: ")
 
 

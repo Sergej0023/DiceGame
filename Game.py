@@ -1,13 +1,16 @@
 from Player import Player
 from DiceRoll import Turn
-from Intelligence import Intelligence
+from Computer import Computer
+import Difficulty
 
 
 class Game:
-    def __init__(self, username, maxScore):
+    def __init__(self, username, difficultylvl):
         self.playerOne = Player(str(username))  # enforces string on player name
         self.playerTwo = Player(str("Player 2"))
-        self.maxScore = maxScore
+        self.maxScore = 100
+        computer = Computer(difficultylvl)
+
 
 
     def pig(self):
