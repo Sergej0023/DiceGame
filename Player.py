@@ -4,7 +4,7 @@ class Player:
         self.username = username
         self.score = 0
         self.turns = 0
-        self.highscore = None
+        self.scoreHistory = []
         self.gamesPlayed = 0
 
 
@@ -22,4 +22,5 @@ class Player:
     def updateGamesPlayed (self, gamesPlayed):
         self.gamesPlayed += 1
 
-
+    def addScore (self):
+        self.scoreHistory.append((self.name, self.score))
