@@ -4,6 +4,8 @@ class Player:
         self.username = username
         self.score = 0
         self.turns = 0
+        self.highscore = None
+        self.gamesPlayed = 0
 
 
     def changeUsername(self, username):
@@ -16,4 +18,8 @@ class Player:
 
     def updateScore(self, newScore):
         self.score += newScore
+
+    def updateGamesPlayed (self, gamesPlayed):
+        self.gamesPlayed += 1
+
 
