@@ -34,3 +34,35 @@ class Turn:
     @staticmethod  # winGame returns True if score reaches maxScore
     def winGame(score, maxScore):
         return True if score >= maxScore else False
+
+
+    @staticmethod
+    def playerTurn(player, maxScore):
+        turn = Turn()
+
+        turnScore = turn.score
+        playerScore = player.score
+
+        while True:
+            dice = Turn.playTurn()
+
+            print(playerScore)
+            print(dice)
+
+            if Turn.skipTurn(dice):
+                print("LOST ROUND!!!")  # put this somewhere else
+                return
+
+            newPlayerScore = turnScore + dice
+            checkWin = Turn.winGame(newPlayerScore, maxScore)
+
+            if checkWin is True:
+                return 1  # wins the game
+
+            turnScore += dice
+
+            anotherTurn = Turn.anotherTurn(input("Another turn? "))  # change input from different place
+            if anotherTurn is False:
+                player.updateScore(turnScore)
+                return
+
