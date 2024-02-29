@@ -5,11 +5,10 @@ import Difficulty
 
 
 class Game:
-    def __init__(self, username, difficultylvl):
+    def __init__(self, username): 
         self.playerOne = Player(str(username))  # enforces string on player name
         self.playerTwo = Player(str("Player 2"))
         self.maxScore = 100
-        computer = Computer(difficultylvl)
 
 
 
