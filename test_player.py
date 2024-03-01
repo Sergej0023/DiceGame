@@ -93,8 +93,5 @@ class TestPlayer(unittest.TestCase):
 
         self.assertEqual(player9.scoreHistory, [["Scored 100 in 36 turns"], ["Scored 99 in 0 turns"]])
         
-    
-    
-        
 if __name__ == "__main__":      
     unittest.main()
