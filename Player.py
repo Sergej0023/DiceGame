@@ -1,9 +1,9 @@
 # Add interface for players
 class Player:
-    def __init__(self, username):
+    def __init__(self, username, score = 0, turns = 0):
         self.username = username
-        self.score = 0
-        self.turns = 0
+        self.score = score
+        self.turns = turns
         self.scoreHistory = []
         self.gamesPlayed = 0
 
