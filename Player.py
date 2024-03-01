@@ -8,8 +8,8 @@ class Player:
         self.gamesPlayed = 0
 
 
-    def changeUsername(self, username):
-        self.username = username
+    def changeUsername(self, changedUsername):
+        self.username = changedUsername
 
 
     def cheat(self, score):
