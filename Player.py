@@ -19,8 +19,9 @@ class Player:
     def updateScore(self, newScore):
         self.score += newScore
 
-    def updateGamesPlayed (self, gamesPlayed):
-        self.gamesPlayed += 1
 
-    def addScore (self):
+    def scoreReset (self):
         self.scoreHistory.append((self.name, self.score))
+        self.gamesPlayed += 1   # Call this at end of each game to
+        self.score = 0          # reset the scores and keep track of
+        self.turns = 0          # games played and previous scores.
