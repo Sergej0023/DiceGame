@@ -11,13 +11,12 @@ class Turn:
     @staticmethod  # playTurn rolls dice, returns corresponding value
     def playTurn():
         diceRollOne = 1
-        current_dice_rolls = 0
-        dice_roll = Dice.rollDice()
+        currentDiceRolls = 0
+        diceRoll = Dice.rollDice()
 
-        if dice_roll != diceRollOne:
-            current_dice_rolls += dice_roll
-        return current_dice_rolls
-
+        if diceRoll != diceRollOne:
+            currentDiceRolls += diceRoll
+        return currentDiceRolls
 
     @staticmethod  # endTurn is a choice taken by a player if they want to end the Turn
     def anotherTurn(choice):
