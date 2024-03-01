@@ -28,7 +28,7 @@ class Player:
         self.score = score
 
     def scoreReset (self):
-        self.scoreHistory.append((self.username, self.score))
+        self.scoreHistory.append([f"Scored {self.score} in {self.turns} turns"])
         self.gamesPlayed += 1               # Call this at end of each game to
         self.resetScore(self, score = 0)    # reset the scores and keep track of
         self.resetTurns(self, turns = 0)    # games played and previous scores.
