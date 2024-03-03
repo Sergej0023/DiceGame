@@ -5,11 +5,16 @@ import Difficulty
 
 
 class Game:
-    def __init__(self, username): 
+    def __init__(self, username, playerTwoName, difficultyLevel, mode): 
         self.playerOne = Player(str(username))  # enforces string on player name
-        self.playerTwo = Player(str("Player 2"))
-        self.maxScore = 100
 
+        #both are "playerTwo". When using which specific methods in DiceRoll with do check with: 
+        # if type(self.playerTwo) is Player: 
+        if mode == "p":
+            self.playerTwo = Player(str("Player 2"))
+        elif mode == "c":
+            self.playerTwo = Computer(Difficulty(difficultyLevel).name) 
+        self.maxScore = 100
 
 
     def pig(self):

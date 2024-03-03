@@ -18,8 +18,7 @@ def main():
                 Displays.printBotMenu()
                 difficultyLevel = input("Enter your choice (1 to 4): ")
                 if difficultyLevel in {"1", "2", "3"}:
-                    game = Game(playerName)  # starts a game with a username and difficulty lvl
-                    computer = Computer(Difficulty(int(difficultyLevel)).name)
+                    game = Game(playerName, "", int(difficultyLevel), "c")  # starts a game with a username and difficulty lvl
                 elif difficultyLevel == "4":
                     Displays.printMenu()
                 else:
@@ -27,6 +26,7 @@ def main():
 
             case "2":
                 player2Name = input("Enter the name of player two: ")
+                game = Game(playerName, player2Name, "", "p")
             case "3":
                 HighScore.displayScores(playerName)
             case "4":
