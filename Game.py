@@ -13,7 +13,7 @@ class Game:
         if mode == "p":
             self.playerTwo = Player(str("Player 2"))
         elif mode == "c":
-            self.playerTwo = Computer(Difficulty(difficultyLevel).name) 
+            self.playerTwo = Computer("EASY") #Need to set this up again. Did something wrong with my enums
         self.maxScore = 100
 
 

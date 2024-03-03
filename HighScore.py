@@ -1,12 +1,17 @@
 import pickle
 import Player
-
+import os
 class HighScore:
      
     def __init__(self):
-        self.allPlayerList = []
+
+        self.allPlayerlist = []
         self.filepath = "players_highscores.pkl"
-        self.load_scores()
+        
+        #Added this so if the list is not empty, it loads. Must be loaded once only, at the very beginning. 
+        if os.path.getsize(self.filepath) > 0:  
+            self.allPlayerList = self.load_scores()
+        
 
     
     def add_player_to_list(self, player):
@@ -30,3 +35,5 @@ class HighScore:
         self.allPlayerList.sort(key = lambda player: player.turns)
         for player in self.allPlayerList:
             print(f"Player name:  {player.name}, Ammount of turns: {player.turns}")
+
+    
