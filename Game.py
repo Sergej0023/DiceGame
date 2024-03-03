@@ -1,5 +1,5 @@
 from Player import Player
-from DiceRoll import Turn
+from Turn import Turn
 from Computer import Computer
 import Difficulty
 
