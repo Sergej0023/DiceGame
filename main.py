@@ -4,10 +4,12 @@ from Computer import Computer
 from Computer import Computer
 from HighScore import HighScore
 from Difficulty import Difficulty
+from Player import Player
 
 
 def main():
     playerName = input("Welcome to Pig! Enter the name of player one: ")  # if we want to show highscores for a player, we need the name before the menu?
+    playerOne = Player(playerName)
     HighScore()
 
     while True:
@@ -18,7 +20,8 @@ def main():
                 Displays.printBotMenu()
                 difficultyLevel = input("Enter your choice (1 to 4): ")
                 if difficultyLevel in {"1", "2", "3"}:
-                    game = Game(playerName, "", difficultyLevel, "c")  # starts a game with a username and difficulty lvl
+                    computer = Computer(difficultyLevel)
+                    game = Game(playerOne, "", computer, "c")  # starts a game with a username and difficulty lvl
                     game.pig()
                 elif difficultyLevel == "4":
                     Displays.printMenu()
@@ -27,7 +30,8 @@ def main():
 
             case "2":
                 player2Name = input("Enter the name of player two: ")
-                game = Game(playerName, player2Name, "", "p")
+                player2 = Player(player2Name)
+                game = Game(playerOne, player2, "", "p")
                 game.pig()
             case "3":
                 HighScore.displayScores(playerName)
@@ -38,7 +42,8 @@ def main():
                     case "1": 
                         pass
                     case "2":
-                        pass
+                        newUsername = input("What's the new username: ")
+                        playerOne.changeUsername(newUsername)
             case "5":
                 Displays.printRules()
             case "6":
