@@ -18,7 +18,8 @@ def main():
                 Displays.printBotMenu()
                 difficultyLevel = input("Enter your choice (1 to 4): ")
                 if difficultyLevel in {"1", "2", "3"}:
-                    game = Game(playerName, "", int(difficultyLevel), "c")  # starts a game with a username and difficulty lvl
+                    game = Game(playerName, "", difficultyLevel, "c")  # starts a game with a username and difficulty lvl
+                    game.pig()
                 elif difficultyLevel == "4":
                     Displays.printMenu()
                 else:
@@ -33,6 +34,8 @@ def main():
                 Displays.printRules()
             case "5":
                 break
+            case default:
+                print("Enter a valid")
 
 
 if __name__ == '__main__':

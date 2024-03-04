@@ -1,4 +1,7 @@
 from Dice import Dice
+from Computer import Computer
+from Player import Player
+from Difficulty import Difficulty
 
 
 # Class of static methods which are actions that can be taken during the turn.
@@ -18,11 +21,14 @@ class Turn:
             currentDiceRolls += diceRoll
         return currentDiceRolls
 
-    @staticmethod  # endTurn is a choice taken by a player if they want to end the Turn
+    '''@staticmethod  # endTurn is a choice taken by a player if they want to end the Turn
     def anotherTurn(choice):
-        stopTurn = "Stop"
-        return False if choice == stopTurn else True
-
+        roll = "r"
+        hold = "h"
+        if choice == roll:
+            return True
+        elif choice == hold:
+            return False'''
 
     @staticmethod  # skipTurn returns True if turnScore is 0
     def skipTurn(turnScore):
@@ -40,28 +46,49 @@ class Turn:
         turn = Turn()
 
         turnScore = turn.score
-        playerScore = player.score
 
         while True:
             dice = Turn.playTurn()
+            player.updateRunningScore(dice + player.runningScore)
+            
 
-            print(playerScore)
-            print(dice)
+            if dice == 0:
+                print(f"{player.username} rolled a {dice+1}")
+            else:
+                print(f"{player.username} rolled a {dice}")
+            #print(f"Total score: {player.runningScore}") #Test purpose
+            print(f"{player.username} runningScore: {player.runningScore}")
 
             if Turn.skipTurn(dice):
-                print("LOST ROUND!!!")  # put this somewhere else
-                return
+                #Implement print for skip turn
+                if type(player) is Computer:
+                    player.updateRunningScore(0)                
+                return False
 
             newPlayerScore = turnScore + dice
             checkWin = Turn.winGame(newPlayerScore, maxScore)
 
             if checkWin is True:
-                return 1  # wins the game
+                return True  # wins the game
 
             turnScore += dice
 
-            anotherTurn = Turn.anotherTurn(input("Another turn? "))  # change input from different place
-            if anotherTurn is False:
-                player.updateScore(turnScore)
-                return
 
+
+            if type(player) is Player:     
+                #anotherTurn = Turn.anotherTurn(input("Another turn? "))  # change input from different place
+
+                anotherTurn = input("Another turn? ")
+                if anotherTurn != "r":
+                    player.updateScore(turnScore)
+                    return False
+            
+            elif type(player) is Computer:
+                #computerDecision = player.rollDecision()
+                anotherTurn = player.rollDecision()
+
+                if anotherTurn != "r":
+                    player.updateScore(player.runningScore)
+                    player.updateRunningScore(0)
+                    return False
+            

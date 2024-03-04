@@ -4,6 +4,7 @@ class Player:
         self.username = username
         self.score = score
         self.turns = turns
+        self.runningScore = 0
         self.scoreHistory = []
         self.gamesPlayed = 0
 
@@ -32,3 +33,6 @@ class Player:
         self.gamesPlayed += 1               # Call this at end of each game to
         self.resetScore(self, score = 0)    # reset the scores and keep track of
         self.resetTurns(self, turns = 0)    # games played and previous scores.
+
+    def updateRunningScore(self, runningScore):
+        self.runningScore = runningScore

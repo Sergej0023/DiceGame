@@ -11,21 +11,21 @@ class Game:
         #both are "playerTwo". When using which specific methods in DiceRoll with do check with: 
         # if type(self.playerTwo) is Player: 
         if mode == "p":
-            self.playerTwo = Player(str("Player 2"))
+            self.playerTwo = Player(str(playerTwoName))
         elif mode == "c":
-            self.playerTwo = Computer("EASY") #Need to set this up again. Did something wrong with my enums
+            self.playerTwo = Computer(difficultyLevel) #Need to set this up again. Did something wrong with my enums
         self.maxScore = 100
 
-
+    
     def pig(self):
         while True:
             P1 = Turn.playerTurn(self.playerOne, self.maxScore)
-            if P1 == 1:
+            if P1 == True:
                 print(f"{self.playerOne.username} wins")  # Testing purposes
                 break
 
             P2 = Turn.playerTurn(self.playerTwo, self.maxScore)
-            if P2 == 1:
+            if P2 == True:
                 print(f"{self.playerTwo.username} wins")  # testing purposes
                 break
 
