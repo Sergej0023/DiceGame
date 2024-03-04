@@ -47,6 +47,7 @@ class Turn:
             else:
                 print(f"{player.username} rolled a {dice}")
                 print(f"{player.username} runningScore: {player.runningScore}")
+            print(player.score)
 
             if Turn.skipTurn(dice):
                 #Implement print for skip turn
@@ -69,6 +70,7 @@ class Turn:
                 anotherTurn = input("Another turn? ")
                 if anotherTurn != "r":
                     player.updateScore(player.runningScore)
+                    player.updateRunningScore(0)
                     return False
             
             elif type(player) is Computer:
