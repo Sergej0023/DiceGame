@@ -28,6 +28,7 @@ def main():
             case "2":
                 player2Name = input("Enter the name of player two: ")
                 game = Game(playerName, player2Name, "", "p")
+                game.pig()
             case "3":
                 HighScore.displayScores(playerName)
             case "4":

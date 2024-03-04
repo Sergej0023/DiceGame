@@ -11,11 +11,11 @@ class Computer:
     def rollDecision(self):
         match self.difficulty:
             case "1":#Easy level           
-                 self.decision(20) #From wikipedia, gives an 8% disadvantage
+                 return self.decision(20) #From wikipedia, gives an 8% disadvantage
             case "2": #Medium level
-                self.decision(25) #From wikipedia, those are all 
+                return self.decision(25) #From wikipedia, those are all 
             case "3": #Hard level
-                self.decision(15) #To be tweaked still
+                return self.decision(15) #To be tweaked still
             
     def decision(self, turnTotal):
         return "r" if self.runningScore < turnTotal else "h"
