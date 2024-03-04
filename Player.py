@@ -9,6 +9,7 @@ class Player:
         self.gamesPlayed = 0
 
 
+    
     def changeUsername(self, changedUsername):
         self.username = changedUsername
 

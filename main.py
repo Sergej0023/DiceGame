@@ -32,8 +32,16 @@ def main():
             case "3":
                 HighScore.displayScores(playerName)
             case "4":
-                Displays.printRules()
+                Displays.printPlayerOptions()
+                option = input("\nEnter your choice (1 to 3): ")
+                match option:
+                    case "1": 
+                        pass
+                    case "2":
+                        pass
             case "5":
+                Displays.printRules()
+            case "6":
                 break
             case default:
                 print("Enter a valid")

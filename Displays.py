@@ -29,9 +29,10 @@ class Displays:
         │ - - - - - - - - - - - - - - - │
         │ 1. Play versus bot            │
         │ 2. Play with another player   │
-        │ 3. Show highscores            │
-        │ 4. Rules                      │
-        │ 5. Quit                       │
+        │ 3. Show highscores            |
+        | 4. Player options             │
+        │ 5. Rules                      │
+        │ 6. Quit                       │
         │ - - - - - - - - - - - - - - - │
 
         """
@@ -51,3 +52,16 @@ class Displays:
 
         """
         print(bot_menu)
+
+    @staticmethod
+    def printPlayerOptions():
+        player_menu = '''
+        │ - - - - - - - - - - - - - │
+        │     Player Options        │
+        │ - - - - - - - - - - - - - │
+        │ 1. Previous scores        │
+        │ 2. Change name            │
+        | 3. Back                   │
+        │ - - - - - - - - - - - - - │'''
+        print(player_menu)
+       

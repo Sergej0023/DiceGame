@@ -32,8 +32,11 @@ class HighScore:
              print(f"File not found: {self.filepath}. ")
             
     def displayScores(self, player):
-        self.allPlayerList.sort(key = lambda player: player.turns)
-        for player in self.allPlayerList:
-            print(f"Player name:  {player.name}, Ammount of turns: {player.turns}")
+        try:
+            self.allPlayerList.sort(key = lambda player: player.turns)
+            for player in self.allPlayerList:
+                print(f"Player name:  {player.name}, Ammount of turns: {player.turns}")
+        except:
+            print("Issues")
 
     
