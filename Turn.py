@@ -38,15 +38,18 @@ class Turn:
 
         while True:
             dice = Turn.playTurn() 
-            player.updateRunningScore(dice + player.runningScore)
+            #player.updateRunningScore(dice + player.runningScore)
             
 
             if dice == 0:
                 print(f"\n{player.username} rolls a {dice+1}")
-                print(f"{player.username} Current turn's score: 0")
-            else:
+                print(f"{player.username} Current turn's score: 0")              
+                player.updateRunningScore(0)
+            else:       
+                player.updateRunningScore(dice + player.runningScore)
                 print(f"\n{player.username} rolls a {dice}")
                 print(f"Current turn's score: {player.runningScore}")
+            
             print(f"Total score is: {player.score}")
 
             if Turn.skipTurn(dice):
@@ -57,6 +60,8 @@ class Turn:
             checkWin = Turn.winGame(player.runningScore + player.score, maxScore)
 
             if checkWin is True:
+                player.updateRunningScore(0)
+                #player.updateScore(0)
                 return "w"  # wins the game
 
 
@@ -69,7 +74,10 @@ class Turn:
                     player.updateRunningScore(0)
                     return "h"
                 elif anotherTurn == "q": # q for quit. Here you need to exit the game. It's the only time that the player is acting
-                    return "q" #but if you return true it says you won. Must be changed to 3 options "r", "h", "q" or something
+                    #player.updateRunningScore(0)
+                    #player.updateScore(0)
+                    print(f"You have quit the game. Your running score is {player.runningScore} and your total score is {player.score}")
+                    return "q" 
             
             elif type(player) is Computer:
                 anotherTurn = player.rollDecision()
