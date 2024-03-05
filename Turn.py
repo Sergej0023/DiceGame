@@ -2,6 +2,7 @@ from Dice import Dice
 from Computer import Computer
 from Player import Player
 from Difficulty import Difficulty
+import time
 
 
 # Class of static methods which are actions that can be taken during the turn.
@@ -36,7 +37,7 @@ class Turn:
     def playerTurn(player, maxScore):
 
         while True:
-            dice = Turn.playTurn()
+            dice = Turn.playTurn() 
             player.updateRunningScore(dice + player.runningScore)
             
 
@@ -49,31 +50,34 @@ class Turn:
             print(f"Total score is: {player.score}")
 
             if Turn.skipTurn(dice):
-                #Implement print for skip turn
                 if type(player) is Computer:
                     player.updateRunningScore(0)                
-                return False
+                return "h"
 
             checkWin = Turn.winGame(player.runningScore + player.score, maxScore)
 
             if checkWin is True:
-                return True  # wins the game
+                return "w"  # wins the game
 
 
 
             if type(player) is Player:     
 
                 anotherTurn = input("\nEnter r to roll and h to hold: ")
-                if anotherTurn != "r":
+                if anotherTurn == "h":
                     player.updateScore(player.runningScore)
                     player.updateRunningScore(0)
-                    return False
+                    return "h"
+                elif anotherTurn == "q": # q for quit. Here you need to exit the game. It's the only time that the player is acting
+                    return "q" #but if you return true it says you won. Must be changed to 3 options "r", "h", "q" or something
             
             elif type(player) is Computer:
                 anotherTurn = player.rollDecision()
-
-                if anotherTurn != "r":
+                time.sleep(1)
+                if anotherTurn == "h":
+                    print(f"{player.username} holds.")
                     player.updateScore(player.runningScore)
                     player.updateRunningScore(0)
-                    return False
+                    return "h"
             
+    
