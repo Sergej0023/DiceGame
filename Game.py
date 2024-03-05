@@ -24,10 +24,10 @@ class Game:
                 print(f"{self.playerOne.username} wins")  # Testing purposes
                 break
             
-            print("Next Player Turn")
+            print("\nNext Player Turn!")
             P2 = Turn.playerTurn(self.playerTwo, self.maxScore)
             if P2 == True:
                 print(f"{self.playerTwo.username} wins")  # testing purposes
                 break
-            print("Next Player Turn")
+            print("\nNext Player Turn!")
 

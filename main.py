@@ -8,7 +8,7 @@ from Player import Player
 
 
 def main():
-    playerName = input("Welcome to Pig! Enter the name of player one: ")  # if we want to show highscores for a player, we need the name before the menu?
+    playerName = input("Welcome to Pig! Enter the name of player one: ") 
     playerOne = Player(playerName)
     HighScore()
 
