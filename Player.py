@@ -9,7 +9,7 @@ class Player:
         self.gamesPlayed = 0
 
 
-    
+
     def changeUsername(self, changedUsername):
         self.username = changedUsername
 
@@ -24,7 +24,7 @@ class Player:
     @staticmethod
     def resetTurns (self, turns):
         self.turns = turns
-
+    
     @staticmethod
     def resetScore (self, score):   
         self.score = score
