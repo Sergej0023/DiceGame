@@ -42,10 +42,10 @@ class Turn:
             
 
             if dice == 0:
-                print(f"\n{player.username} rolled a {dice+1}")
+                print(f"\n{player.username} rolls a {dice+1}")
                 print(f"{player.username} Current turn's score: 0")
             else:
-                print(f"\n{player.username} rolled a {dice}")
+                print(f"\n{player.username} rolls a {dice}")
                 print(f"Current turn's score: {player.runningScore}")
             print(f"Total score is: {player.score}")
 
