@@ -36,18 +36,17 @@ class Turn:
     def playerTurn(player, maxScore):
 
         while True:
-            print("NEXT TURN \n")
             dice = Turn.playTurn()
             player.updateRunningScore(dice + player.runningScore)
             
 
             if dice == 0:
-                print(f"{player.username} rolled a {dice+1}")
-                print(f"{player.username} RunningScore: 0")
+                print(f"\n{player.username} rolled a {dice+1}")
+                print(f"{player.username} Current turn's score: 0")
             else:
-                print(f"{player.username} rolled a {dice}")
-                print(f"{player.username} runningScore: {player.runningScore}")
-            print(player.score)
+                print(f"\n{player.username} rolled a {dice}")
+                print(f"Current turn's score: {player.runningScore}")
+            print(f"Total score is: {player.score}")
 
             if Turn.skipTurn(dice):
                 #Implement print for skip turn
@@ -55,19 +54,16 @@ class Turn:
                     player.updateRunningScore(0)                
                 return False
 
-            #newPlayerScore = player.runningScore + dice
             checkWin = Turn.winGame(player.runningScore + player.score, maxScore)
 
             if checkWin is True:
                 return True  # wins the game
 
-            #player.runningScore += dice
-
 
 
             if type(player) is Player:     
 
-                anotherTurn = input("Another turn? ")
+                anotherTurn = input("\nEnter r to roll and h to hold: ")
                 if anotherTurn != "r":
                     player.updateScore(player.runningScore)
                     player.updateRunningScore(0)
