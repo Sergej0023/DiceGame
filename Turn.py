@@ -1,7 +1,10 @@
+import Game
 from Dice import Dice
 from Computer import Computer
 from Player import Player
 from Difficulty import Difficulty
+from HumanPlayer import HumanPlayer
+from Displays import Displays
 import time
 
 
@@ -22,9 +25,10 @@ class Turn:
             currentDiceRolls += diceRoll
         return currentDiceRolls
 
+
     @staticmethod  # skipTurn returns True if turnScore is 0
     def skipTurn(turnScore):
-        resetPoints = 0
+        resetPoints = 1
         return True if turnScore == resetPoints else False
 
 
@@ -35,57 +39,78 @@ class Turn:
 
     @staticmethod
     def playerTurn(player, maxScore):
-
         while True:
-            dice = Turn.playTurn() 
-            #player.updateRunningScore(dice + player.runningScore)
-            
+            dice = Dice.rollDice()
+            player.updateRunningScore(dice + player.runningScore)
 
-            if dice == 0:
-                print(f"\n{player.username} rolls a {dice+1}")
-                print(f"{player.username} Current turn's score: 0")              
-                player.updateRunningScore(0)
-            else:       
-                player.updateRunningScore(dice + player.runningScore)
-                print(f"\n{player.username} rolls a {dice}")
-                print(f"Current turn's score: {player.runningScore}")
-            
-            print(f"Total score is: {player.score}")
+            Displays.printDice(player, dice)
+            # print(f"\nCurrent running {player.runningScore}") # TESTING
+            # print(f"Score {player.score}")                    # TESTING
+            Displays.printScore(player.score, player.runningScore)
 
             if Turn.skipTurn(dice):
-                if type(player) is Computer:
-                    player.updateRunningScore(0)                
-                return "h"
+                return Game.GameOptions.ENDTURN
 
-            checkWin = Turn.winGame(player.runningScore + player.score, maxScore)
+            if Turn.winGame(player.runningScore + player.score, maxScore):
+                return Game.GameOptions.WIN
 
-            if checkWin is True:
-                player.updateRunningScore(0)
-                #player.updateScore(0)
-                return "w"  # wins the game
+            decision = player.anotherTurn()
+            if decision == player.hold:
+                player.updateScore(player.runningScore)
+                return Game.GameOptions.ENDTURN
+
+            if player == type(HumanPlayer):
+                if decision == player.quit:
+                    return Game.GameOptions.QUIT
 
 
 
-            if type(player) is Player:     
 
-                anotherTurn = input("\nEnter r to roll and h to hold: ")
-                if anotherTurn == "h":
-                    player.updateScore(player.runningScore)
-                    player.updateRunningScore(0)
-                    return "h"
-                elif anotherTurn == "q": # q for quit. Here you need to exit the game. It's the only time that the player is acting
-                    #player.updateRunningScore(0)
-                    #player.updateScore(0)
-                    print(f"You have quit the game. Your running score is {player.runningScore} and your total score is {player.score}")
-                    return "q" 
-            
-            elif type(player) is Computer:
-                anotherTurn = player.rollDecision()
-                time.sleep(1)
-                if anotherTurn == "h":
-                    print(f"{player.username} holds.")
-                    player.updateScore(player.runningScore)
-                    player.updateRunningScore(0)
-                    return "h"
-            
-    
+
+
+
+
+    # 
+    # @staticmethod  # Fix or rewrite whole thing
+    # def playerTurn(player, maxScore):
+    # 
+    #     while True:
+    #         dice = Turn.playTurn()
+    #         player.updateRunningScore(dice + player.runningScore)
+    # 
+    #         if dice == 0:
+    #             print(f"\n{player.username} rolls a {dice + 1}")
+    #             print(f"{player.username} Current turn's score: 0")
+    #         else:
+    #             print(f"\n{player.username} rolls a {dice}")
+    #             print(f"Current turn's score: {player.runningScore}")
+    #         print(f"Total score is: {player.score}")
+    # 
+    #         if Turn.skipTurn(dice):
+    #             if type(player) is Computer:
+    #                 player.updateRunningScore(0)
+    #             return "h"
+    # 
+    #         checkWin = Turn.winGame(player.runningScore + player.score, maxScore)
+    # 
+    #         if checkWin is True:
+    #             return "w"  # wins the game
+    # 
+    #         if type(player) is HumanPlayer:
+    # 
+    #             anotherTurn = input("\nEnter r to roll and h to hold: ")
+    #             if anotherTurn == "h":
+    #                 player.updateScore(player.runningScore)
+    #                 player.updateRunningScore(0)
+    #                 return "h"
+    #             elif anotherTurn == "q":  # q for quit. Here you need to exit the game. It's the only time that the player is acting
+    #                 return "q"  # but if you return true it says you won. Must be changed to 3 options "r", "h", "q" or something
+    # 
+    #         elif type(player) is Computer:
+    #             anotherTurn = player.rollDecision()
+    #             time.sleep(1)
+    #             if anotherTurn == "h":
+    #                 print(f"{player.username} holds.")
+    #                 player.updateScore(player.runningScore)
+    #                 player.updateRunningScore(0)
+    #                 return "h"
