@@ -59,7 +59,7 @@ class Turn:
                 player.updateScore(player.runningScore)
                 return Game.GameOptions.ENDTURN
 
-            if player == type(HumanPlayer):
+            if type(player) is HumanPlayer:
                 if decision == player.quit:
                     return Game.GameOptions.QUIT
 
