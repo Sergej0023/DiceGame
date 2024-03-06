@@ -1,5 +1,5 @@
 class Displays:
-    
+
     @staticmethod
     def printRules():
         rules = """
@@ -21,6 +21,7 @@ class Displays:
             """
         print(rules)
 
+
     @staticmethod
     def printMenu():
         main_menu = """
@@ -38,6 +39,7 @@ class Displays:
         """
         print(main_menu)
 
+
     @staticmethod
     def printBotMenu():
         bot_menu = """
@@ -53,6 +55,7 @@ class Displays:
         """
         print(bot_menu)
 
+
     @staticmethod
     def printPlayerOptions():
         player_menu = '''
@@ -64,4 +67,24 @@ class Displays:
         | 3. Back                   │
         │ - - - - - - - - - - - - - │'''
         print(player_menu)
-       
+
+
+    @staticmethod
+    def printDice(player, dice):
+        if dice == 1:
+            print(f"{player.username} rolled {dice}, skip turn")
+        else:
+            print(f"{player.username} rolled {dice}")
+
+    @staticmethod
+    def inputAnotherTurn():
+        return input("Another turn? ")
+
+
+    @staticmethod
+    def printScore(score, runningScore):
+        print(f"Score {score + runningScore}")
+
+
+def printWin(player):
+    print(f"{player.username} won.")
