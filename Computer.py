@@ -1,5 +1,6 @@
 from Difficulty import Difficulty
 from Player import Player
+import time
 
 
 class Computer(Player):
@@ -20,7 +21,7 @@ class Computer(Player):
 
 
     def decision(self, turnTotal):
-        return "r" if self.runningScore < turnTotal else "h"
+        return self.roll if self.runningScore < turnTotal else self.hold
 
 
     def setDifficulty(self, difficultyLvl):
@@ -36,9 +37,10 @@ class Computer(Player):
         if difficultyLvl not in values: raise ValueError("Sorry, the difficulty level does not exist")
 
 
-    def updateScore(self, score):
-        self.score = score
-
-
     def updateRunningScore(self, runningScore):
         self.runningScore = runningScore
+
+
+    def anotherTurn(self):
+        time.sleep(1)
+        return self.rollDecision()
