@@ -4,6 +4,8 @@ class Player:
         self.username = None
         self.score = 0
         self.runningScore = 0
+        self.roll = "R"
+        self.hold = "H"
 
 
     def updateScore(self, newScore):
@@ -27,3 +29,6 @@ class Player:
     def resetGame(self):
         self.resetScore(self, 0)  # reset the scores and keep track of
         self.resetTurns(self, 0)  # games played and previous scores.
+
+    def anotherTurn(self):
+        pass
