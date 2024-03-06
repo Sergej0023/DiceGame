@@ -46,10 +46,12 @@ class Turn:
             Displays.printDice(player, dice)
             # print(f"\nCurrent running {player.runningScore}") # TESTING
             # print(f"Score {player.score}")                    # TESTING
-            Displays.printScore(player.score, player.runningScore)
+
 
             if Turn.skipTurn(dice):
                 return Game.GameOptions.ENDTURN
+
+            Displays.printScore(player.score, player.runningScore)
 
             if Turn.winGame(player.runningScore + player.score, maxScore):
                 return Game.GameOptions.WIN
