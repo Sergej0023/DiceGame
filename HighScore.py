@@ -1,5 +1,4 @@
 import pickle
-import Player
 import os
 class HighScore:
      
