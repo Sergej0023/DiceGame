@@ -1,4 +1,4 @@
-from displays import Displays
+from Displays import Displays
 from Turn import Turn
 from enum import Enum, auto
 

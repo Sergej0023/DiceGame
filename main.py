@@ -1,7 +1,7 @@
-from displays import Displays
+from Displays import Displays
 from Game import Game
 from Computer import Computer
-from highscore import highscore
+from HighScore import highscore
 from HumanPlayer import HumanPlayer
 
 

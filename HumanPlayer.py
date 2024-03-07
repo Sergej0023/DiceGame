@@ -1,6 +1,6 @@
 # Add interface for players
 from Player import Player
-from displays import Displays
+from Displays import Displays
 
 
 class HumanPlayer(Player):
