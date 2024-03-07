@@ -1,7 +1,7 @@
-import Game
 from Dice import Dice
 from HumanPlayer import HumanPlayer
-from Displays import Displays
+from displays import Displays
+from enum import Enum, auto
 
 
 # Class of static methods which are actions that can be taken during the turn.
@@ -21,27 +21,36 @@ class Turn:
     @staticmethod
     def player_turn(player, max_score):
         while True:
-            dice = Dice.roll_dice()
+            dice = Dice.rollDice()
             player.running_score += dice
 
             Displays.print_dice(player, dice)  # PRINT ON CONSOLE
 
             if Turn.skip_turn(dice):
-                return Game.GameOptions.ENDTURN  # RETURNS ENUM
+                return GameOptions.ENDTURN  # RETURNS ENUM
 
             Displays.print_score(player.score, player.running_score)
 
             if Turn.win_game(player.running_score + player.score, max_score):
-                return Game.GameOptions.WIN  # RETURNS ENUM
+                return GameOptions.WIN  # RETURNS ENUM
 
             decision = player.roll_decision()
+
             if decision == player.hold:  # Checks if player selected hold
                 player.score += player.running_score
-                return Game.GameOptions.ENDTURN  # RETURNS ENUM
+                return GameOptions.ENDTURN  # RETURNS ENUM
 
             if type(player) is HumanPlayer:
                 if decision == player.quit:
-                    return Game.GameOptions.QUIT  # RETURNS ENUM
+                    return GameOptions.QUIT  # RETURNS ENUM
 
                 if decision == player.cheat:
-                    return Game.GameOptions.CHEAT
+                    return GameOptions.CHEAT
+
+
+class GameOptions(Enum):
+    WIN = auto()
+    QUIT = auto()
+    ENDTURN = auto()
+    PLAYING = auto()
+    CHEAT = auto()
