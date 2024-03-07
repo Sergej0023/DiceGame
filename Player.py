@@ -3,17 +3,9 @@ class Player:
     def __init__(self):
         self.username = None
         self.score = 0
-        self.runningScore = 0
+        self.running_score = 0
         self.roll = "R"
         self.hold = "H"
-
-
-    def updateScore(self, newScore):
-        self.score += newScore
-
-
-    def updateRunningScore(self, runningScore):
-        self.runningScore = runningScore
 
 
     @staticmethod  # Helper method for resetGame
@@ -30,5 +22,6 @@ class Player:
         self.resetScore(self, 0)  # reset the scores and keep track of
         self.resetTurns(self, 0)  # games played and previous scores.
 
-    def anotherTurn(self):
+
+    def roll_decision(self):
         pass
