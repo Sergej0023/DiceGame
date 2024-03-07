@@ -1,5 +1,5 @@
 import unittest
-import Turn
+from Turn import Turn
 import Dice
 import HumanPlayer
 import Displays
