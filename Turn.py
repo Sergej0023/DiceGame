@@ -1,8 +1,6 @@
-from Dice import Dice
-from HumanPlayer import HumanPlayer
+import HumanPlayer
 from displays import Displays
-from enum import Enum, auto
-
+from Turn import Turn, GameOptions
 
 # Class of static methods which are actions that can be taken during the turn.
 # It keeps track of scores per turn, temporary score
