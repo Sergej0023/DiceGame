@@ -5,7 +5,7 @@ class HighScore:
      
     def __init__(self):
 
-        self.allPlayerlist = []
+        self.allPlayerList = []
         self.filepath = "players_highscores.pkl"
         
         #Added this so if the list is not empty, it loads. Must be loaded once only, at the very beginning. 

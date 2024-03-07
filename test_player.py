@@ -4,7 +4,7 @@ from Player import Player
 class TestPlayer(unittest.TestCase):
 
     def test_changeUsername(self): # Testing changing name
-        player1 = Player("One", 0, 0)
+        player1 = Player()
 
         changedName = "Eleven"
         player1.changeUsername(changedName)
