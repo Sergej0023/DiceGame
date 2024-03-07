@@ -1,30 +1,26 @@
-import Displays
-from Player import Player
+from displays import Displays
 from Turn import Turn
-from Computer import Computer
-import Difficulty
-from HighScore import HighScore
 from enum import Enum, auto
 
 
 class Game:
-    def __init__(self, playerOne, playerTwo):
-        self.playerOne = playerOne  # enforces string on player name
-        self.playerTwo = playerTwo
-        self.maxScore = 50
+    def __init__(self, player_one, player_two):
+        self.player_one = player_one  # enforces string on player name
+        self.player_two = player_two
+        self.max_score = 50
 
 
     def pig(self):
 
-        print("\n\nPlayer 1")
+        print(f"\n\n{self.player_one.username}")
         input("Continue...")
-        playing = self.decision(Turn.playerTurn(self.playerOne, self.maxScore), self.playerOne)
+        playing = self.player_turn(Turn.player_turn(self.player_one, self.max_score), self.player_one)
 
         if playing != GameOptions.PLAYING:
             return None
 
-        print("\n\nPlayer 2")
-        playing = self.decision(Turn.playerTurn(self.playerTwo, self.maxScore), self.playerTwo)
+        print(f"\n\n{self.player_two.username}")
+        playing = self.player_turn(Turn.player_turn(self.player_two, self.max_score), self.player_two)
 
         if playing != GameOptions.PLAYING:
             return None
@@ -32,30 +28,37 @@ class Game:
         Game.pig(self)
 
 
-    def decision(self, gameOption, player):
-        match gameOption:
+    def player_turn(self, game_option, player):
+        match game_option:
+            case GameOptions.CHEAT:
+                print("Cheater...")
+                player.score = input("input score: ")
+
             case GameOptions.ENDTURN:
-                self.resetTurn(player)
+                self.reset_turn(player)
                 return GameOptions.PLAYING
 
             case GameOptions.WIN:
-                self.resetTurn(player)
+                self.reset_turn(player)
                 self.reset()
-                Displays.printWin(player)
+                Displays.print_win(player)
+                input("Continue...")
 
             case GameOptions.QUIT:
-                self.resetTurn(player)
+                self.reset_turn(player)
                 self.reset()
+
+
 
 
     @staticmethod
-    def resetTurn(player):
-        player.updateRunningScore(0)
+    def reset_turn(player):
+        player.running_score = 0
 
 
     def reset(self):
-        self.playerOne.resetGame()
-        self.playerTwo.resetGame()
+        self.player_one.resetGame()
+        self.player_two.resetGame()
 
 
 class GameOptions(Enum):
@@ -63,71 +66,5 @@ class GameOptions(Enum):
     QUIT = auto()
     ENDTURN = auto()
     PLAYING = auto()
+    CHEAT = auto()
 
-
-# P1 = Turn.playerTurn(self.playerOne, self.maxScore)
-# if P1 == "w":
-#     print(f"\n{self.playerOne.username} wins!!")
-# Testing purposes
-#     break
-# elif P1 == "q":
-#     break  #
-# print("\nNext Player Turn!")
-# P2 = Turn.playerTurn(self.playerTwo, self.maxScore)
-# if P2 == "w":
-#     print(f"\n{self.playerTwo.username} wins!!")
-# testing purposes
-#     break
-# elif P2 == "q":
-#     break
-# print("\nNext Player Turn!")
-
-"""
-OLD 
-
-from Player import Player
-from Turn import Turn
-from Computer import Computer
-import Difficulty
-
-
-class Game:
-    def __init__(self, playerOne, playerTwo, computer, mode): 
-        self.playerOne = playerOne # enforces string on player name
-        self.maxScore = 25
-
-        #both are "playerTwo". When using which specific methods in DiceRoll with do check with: 
-        # if type(self.playerTwo) is Player: 
-        if mode == "p":
-            self.playerTwo = playerTwo
-        elif mode == "c":
-            self.playerTwo = computer
-
-    
-    def pig(self):
-        while True:
-            P1 = Turn.playerTurn(self.playerOne, self.maxScore)
-            if P1 == "w":
-                self.playerOne.updateScore(0)
-                self.playerTwo.updateScore(0)
-                print(f"\n{self.playerOne.username} wins!!")  # Testing purposes
-                break
-            elif P1 == "q":     
-                self.playerOne.updateScore(0)
-                self.playerTwo.updateScore(0)
-                break
-            
-            print("\nNext Player Turn!")
-            P2 = Turn.playerTurn(self.playerTwo, self.maxScore)
-            if P2 == "w":
-                self.playerOne.updateScore(0)
-                self.playerTwo.updateScore(0)
-                print(f"\n{self.playerTwo.username} wins!!")  # testing purposes
-                break
-            elif P2 == "q":
-                self.playerOne.updateScore(0)
-                self.playerTwo.updateScore(0)
-                break
-            print("\nNext Player Turn!")
-
-"""
