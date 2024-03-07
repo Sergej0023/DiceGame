@@ -31,12 +31,13 @@ class HighScore:
         except FileNotFoundError:
              print(f"File not found: {self.filepath}. ")
             
-    def displayScores(self, player):
+    def displayScores(self):
         try:
             self.allPlayerList.sort(key = lambda player: player.turns)
             for player in self.allPlayerList:
                 print(f"Player name:  {player.name}, Ammount of turns: {player.turns}")
-        except:
-            print("Issues")
+    
+        except TypeError:
+            print("The player list is not properly defined.")
 
     
