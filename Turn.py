@@ -21,7 +21,7 @@ class Turn:
     @staticmethod
     def player_turn(player, max_score):
         while True:
-            dice = Dice.rollDice()
+            dice = Dice.roll_dice()
             player.running_score += dice
 
             Displays.print_dice(player, dice)  # PRINT ON CONSOLE

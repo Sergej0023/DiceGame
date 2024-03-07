@@ -5,6 +5,6 @@ class Dice:
     diceValues = list(range(1, 7))
   
     @staticmethod
-    def rollDice():
+    def roll_dice():
         diceRoll = random.choice(list(Dice.diceValues))
         return diceRoll
