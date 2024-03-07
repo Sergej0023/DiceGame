@@ -39,7 +39,6 @@ class Game:
                 return GameOptions.PLAYING
 
             case GameOptions.WIN:
-                self.save_player_HS(player)
                 self.resetTurn(player)
                 self.reset()
                 Displays.printWin(player)
@@ -52,9 +51,6 @@ class Game:
     @staticmethod
     def resetTurn(player):
         player.updateRunningScore(0)
-
-    def save_player_HS(player):
-        HighScore.add_player_to_list(player)
 
 
     def reset(self):
