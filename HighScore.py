@@ -29,6 +29,7 @@ class HighScore:
 
         except FileNotFoundError:
              print(f"File not found: {self.filepath}. ")
+             return []
             
     def displayScores(self):
         try:
