@@ -45,10 +45,3 @@ class Turn:
                 if decision == player.cheat:
                     return GameOptions.CHEAT
 
-
-class GameOptions(Enum):
-    WIN = auto()
-    QUIT = auto()
-    ENDTURN = auto()
-    PLAYING = auto()
-    CHEAT = auto()
