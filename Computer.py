@@ -1,4 +1,3 @@
-from Difficulty import Difficulty
 from Player import Player
 import time
 
@@ -10,7 +9,8 @@ class Computer(Player):
         self.difficulty = difficulty
 
 
-    def rollDecision(self):
+    def roll_decision(self):
+        time.sleep(1)
         match self.difficulty:
             case "1":  # Easy level
                 return self.decision(20)  # From wikipedia, gives an 8% disadvantage
@@ -21,26 +21,4 @@ class Computer(Player):
 
 
     def decision(self, turnTotal):
-        return self.roll if self.runningScore < turnTotal else self.hold
-
-
-    def setDifficulty(self, difficultyLvl):
-        values = [member.name for member in Difficulty]
-        if difficultyLvl not in values:
-            raise ValueError("Sorry, the difficulty level does not exist")
-        else:
-            self.difficulty = difficultyLvl
-
-
-    def checkDifficulty(self, difficultyLvl):
-        values = [member.name for member in Difficulty]
-        if difficultyLvl not in values: raise ValueError("Sorry, the difficulty level does not exist")
-
-
-    def updateRunningScore(self, runningScore):
-        self.runningScore = runningScore
-
-
-    def anotherTurn(self):
-        time.sleep(1)
-        return self.rollDecision()
+        return self.roll if self.running_score < turnTotal else self.hold
