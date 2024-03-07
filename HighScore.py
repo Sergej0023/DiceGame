@@ -1,5 +1,6 @@
 import pickle
 import os
+from Player import Player
 class HighScore:
      
     def __init__(self):
