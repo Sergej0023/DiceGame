@@ -1,7 +1,7 @@
 import Game
 from Dice import Dice
 from HumanPlayer import HumanPlayer
-from displays import Displays
+from Displays import Displays
 
 
 # Class of static methods which are actions that can be taken during the turn.
