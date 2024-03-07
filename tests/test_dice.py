@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from Dice import Dice
+from DiceGame.Dice import Dice
 import random
 
 

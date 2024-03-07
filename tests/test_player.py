@@ -1,5 +1,5 @@
 import unittest
-from Player import Player 
+from DiceGame.Player import Player 
 
 class TestPlayer(unittest.TestCase):
 
