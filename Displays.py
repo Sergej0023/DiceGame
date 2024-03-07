@@ -1,7 +1,6 @@
 class Displays:
-
     @staticmethod
-    def printRules():
+    def print_rules():
         rules = """
         │ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
         |                                                 Rules                                                           |
@@ -23,7 +22,7 @@ class Displays:
 
 
     @staticmethod
-    def printMenu():
+    def print_menu():
         main_menu = """
         │ - - - - - - - - - - - - - - - │
         │           Pig Game            │
@@ -41,7 +40,7 @@ class Displays:
 
 
     @staticmethod
-    def printBotMenu():
+    def print_bot_menu():
         bot_menu = """
         │ - - - - - - - - - - - - - │
         │     Select Difficulty     │
@@ -57,7 +56,7 @@ class Displays:
 
 
     @staticmethod
-    def printPlayerOptions():
+    def print_player_options():
         player_menu = '''
         │ - - - - - - - - - - - - - │
         │     Player Options        │
@@ -70,21 +69,22 @@ class Displays:
 
 
     @staticmethod
-    def printDice(player, dice):
+    def print_dice(player, dice):
         if dice == 1:
             print(f"{player.username} rolled {dice}, skip turn")
         else:
             print(f"{player.username} rolled {dice}")
 
+
     @staticmethod
-    def inputAnotherTurn():
+    def input_another_turn():
         return input("Another turn? ")
 
 
     @staticmethod
-    def printScore(score, runningScore):
-        print(f"Score {score + runningScore}")
+    def print_score(score, runningScore):
+        print(f"Score {score + runningScore}\n")
 
-
-def printWin(player):
-    print(f"{player.username} won.")
+    @staticmethod
+    def print_win(player):
+        print(f"{player.username} won.")
