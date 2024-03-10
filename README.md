@@ -11,4 +11,11 @@ Programming Language used: Python.
 # For tester
 
 We have added a "testing mode" in which the max score is set lower than 100 to make testing various combinatiosna and modes easier.
-Generated coverage, UML charts and tests can be found in their seperate folders.
+Generated coverage, UML charts and tests can be found in their seperate folders. For the best testing experiece use a venv to run tests 
+and to make things easier you can run the command 
+```
+python -m pip install -r requirements.txt
+
+```
+
+to install all the necessary packages to run the tests.
