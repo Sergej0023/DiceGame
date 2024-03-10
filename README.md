@@ -12,7 +12,7 @@ A player can roll or hold per turn
 Roll -> throw a dice and risk ("r")
 Hold -> don't roll and skips turn ("h")
 Quit -> Quits the game ("q")
-
+ 
 # About the project:
 
 This is assignment is part of Methods for Sustainable Programming course DA115B.
