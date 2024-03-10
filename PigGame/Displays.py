@@ -1,6 +1,10 @@
+"""
+Display class: Most of the print statements are stored in display
+"""
 class Displays:
+
     @staticmethod
-    def print_rules():
+    def printRules():
         rules = """
         │ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
         |                                                 Rules                                                           |
@@ -14,15 +18,17 @@ class Displays:
         |                                                                                                                 |
         | The first player to score 100 or more points wins.                                                              |
         |                                                                                                                 |
-        | (wikipedia reference)                                                                                           |
+        | Cheat mode allows the first player to score 30 to win.                                                          |
         |                                                                                                                 |
+        | To roll press r                                                                                                 |
+        | To hold press h                                                                                                 |
+        | To exit mid game, press q                                                                                       |
         │ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |
             """
         print(rules)
 
-
     @staticmethod
-    def print_menu():
+    def printMenu():
         main_menu = """
         │ - - - - - - - - - - - - - - - │
         │           Pig Game            │
@@ -30,7 +36,7 @@ class Displays:
         │ 1. Play versus bot            │
         │ 2. Play with another player   │
         │ 3. Show highscores            |
-        | 4. Player options             │
+        | 4. Change username            │
         │ 5. Rules                      │
         │ 6. Quit                       │
         │ - - - - - - - - - - - - - - - │
@@ -38,9 +44,8 @@ class Displays:
         """
         print(main_menu)
 
-
     @staticmethod
-    def print_bot_menu():
+    def printBotMenu():
         bot_menu = """
         │ - - - - - - - - - - - - - │
         │     Select Difficulty     │
@@ -54,37 +59,21 @@ class Displays:
         """
         print(bot_menu)
 
-
     @staticmethod
-    def print_player_options():
-        player_menu = '''
+    def printPlayerOptions():
+        player_menu = """
         │ - - - - - - - - - - - - - │
         │     Player Options        │
         │ - - - - - - - - - - - - - │
         │ 1. Previous scores        │
         │ 2. Change name            │
         | 3. Back                   │
-        │ - - - - - - - - - - - - - │'''
+        │ - - - - - - - - - - - - - │"""
         print(player_menu)
 
-
     @staticmethod
-    def print_dice(player, dice):
-        if dice == 1:
-            print(f"{player.username} rolled {dice}, skip turn")
-        else:
-            print(f"{player.username} rolled {dice}")
-
-
-    @staticmethod
-    def input_another_turn():
-        return input("Another turn? ")
-
-
-    @staticmethod
-    def print_score(score, runningScore):
-        print(f"Score {score + runningScore}\n")
-
-    @staticmethod
-    def print_win(player):
-        print(f"{player.username} won.")
+    def printHighscoreHeader():
+        print("\n│ - - - - - - - - - - - - - - -│")
+        print("│          Highscores          │")
+        print("│ - - - - - - - - - - - - - - -│")
+        print("|                              |")
