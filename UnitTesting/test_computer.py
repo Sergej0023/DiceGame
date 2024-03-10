@@ -16,7 +16,7 @@ class TestComputer(unittest.TestCase):
             self.assertTrue(self.easy.is_rolling())
 
             self.easy.turn_total = 45
-            self.assertTrue(self.easy.is_rolling())
+            self.assertFalse(self.easy.is_rolling())
 
     def test_is_rolling_medium(self):
         with patch("builtins.input", side_effect=["n"]):
