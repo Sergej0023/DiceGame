@@ -1,4 +1,4 @@
-# Pig Dice Game
+## Pig Dice Game
 
 # About
 
@@ -6,7 +6,7 @@ The game is only tested on the console, and run dirrectly in the IDE.
 The game must have at least one human player that can play against computer or another human
 Rules of the game are simple, first person to get a score of 100 wins, each turn you can roll a dice, if the dice lands on 1, the points from that turn become 0. Its a game about risk and strategy (and maybe some luck)
 
-#Controls
+# Controls
 
 A player can roll or hold per turn
 Roll -> throw a dice and risk ("r")
