@@ -19,13 +19,13 @@ class Computer:
     def is_rolling(self):
         match self.difficulty:
             case "1":  # Easy level
-                return self.decision_logic(
-                    20
-                )  # From wikipedia, gives an 8% disadvantage
+                return self.decision_logic(40)
+            # From wikipedia, gives an 8% disadvantage:
             case "2":  # Medium level
-                return self.decision_logic(25)  # From wikipedia, those are all
+                return self.decision_logic(25)
+            # From wikipedia, gives a 4% disadvantage:
             case "3":  # Hard level
-                return self.decision_logic(15)  # To be tweaked still
+                return self.decision_logic(20)
 
     def decision_logic(self, turn_max):
         time.sleep(1)
