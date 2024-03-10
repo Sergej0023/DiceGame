@@ -3,6 +3,8 @@ Human class: A class for human player
 can make decision to hold roll cheat or quit the game,
 can change name
 """
+
+
 class Human:
     def __init__(self, username):
         self.username = username
@@ -21,11 +23,13 @@ class Human:
         elif decision == "q":
             return "q"
         else:
-            print("""
+            print(
+                """
                   Invalid input! Enter:
                   r to roll 
                   h to hold
-                  q to quit \n""")
+                  q to quit \n"""
+            )
             return self.is_rolling()
 
     def change_username(self, new_username):

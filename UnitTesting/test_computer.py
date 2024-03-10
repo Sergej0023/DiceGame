@@ -11,7 +11,7 @@ class TestComputer(unittest.TestCase):
         self.hard = Computer("3")
 
     def test_is_rolling_easy(self):
-        with patch('builtins.input', side_effect=['n']):
+        with patch("builtins.input", side_effect=["n"]):
             self.easy.turn_total = 10
             self.assertTrue(self.easy.is_rolling())
 
@@ -19,7 +19,7 @@ class TestComputer(unittest.TestCase):
             self.assertFalse(self.easy.is_rolling())
 
     def test_is_rolling_medium(self):
-        with patch('builtins.input', side_effect=['n']):
+        with patch("builtins.input", side_effect=["n"]):
             self.medium.turn_total = 20
             self.assertTrue(self.medium.is_rolling())
 
@@ -27,7 +27,7 @@ class TestComputer(unittest.TestCase):
             self.assertFalse(self.medium.is_rolling())
 
     def test_is_rolling_hard(self):
-        with patch('builtins.input', side_effect=['n']):
+        with patch("builtins.input", side_effect=["n"]):
             self.hard.turn_total = 10
             self.assertTrue(self.hard.is_rolling())
 
@@ -45,5 +45,5 @@ class TestComputer(unittest.TestCase):
         self.assertFalse(self.computer.decision_logic(20))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

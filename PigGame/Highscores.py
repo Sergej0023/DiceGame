@@ -1,6 +1,6 @@
 import pickle
 
-from PigGame import Human 
+from PigGame import Human
 
 
 class Highscore:
@@ -15,7 +15,7 @@ class Highscore:
         self.load_scores()
 
     # adds player to the list if it's not already
-    def add_player_to_list(self, player:Human.Human):
+    def add_player_to_list(self, player: Human.Human):
         if player not in self.all_player_list:
             self.all_player_list.append(player)
 
@@ -38,7 +38,7 @@ class Highscore:
     # used to parse top 10 scores if list is not empty
     def sort_scores(self):
         if self.all_player_list:
-            sorted(self.all_player_list, key= lambda x:x.highscore)
+            sorted(self.all_player_list, key=lambda x: x.highscore)
             self.top_ten = self.all_player_list[0:10]
 
     # used to print scores

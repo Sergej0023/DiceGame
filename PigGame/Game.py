@@ -1,6 +1,4 @@
-
 from PigGame.Turn import Turn
- 
 
 
 class Game:
@@ -16,7 +14,7 @@ class Game:
     def start_game(self):
         player = self.player_one
         while True:
-            #starts a new player's turn to roll
+            # starts a new player's turn to roll
             turn = Turn(player, self.winning_score)
             # starts a player's turn
             turn_result = turn.play_turn()

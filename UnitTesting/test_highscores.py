@@ -15,7 +15,7 @@ class TestHighscore(unittest.TestCase):
 
     def test_save_scores(self):
         self.highscore = Highscore(True)
-        self.highscore.all_player_list  = list()
+        self.highscore.all_player_list = list()
         h1 = Human("bob")
         h1.highscore = 4
 
@@ -26,11 +26,13 @@ class TestHighscore(unittest.TestCase):
         with open(self.highscore.filepath, "rb") as playerFile:
             saved_data = pickle.load(playerFile)
 
-        self.assertEqual(saved_data[0].highscore, self.highscore.all_player_list[0].highscore)
+        self.assertEqual(
+            saved_data[0].highscore, self.highscore.all_player_list[0].highscore
+        )
 
     def test_load_scores(self):
         self.highscore = Highscore(True)
-        self.highscore.all_player_list  = list()
+        self.highscore.all_player_list = list()
         h1 = Human("bob")
         h1.highscore = 4
         self.highscore.all_player_list.append(h1)
@@ -42,7 +44,7 @@ class TestHighscore(unittest.TestCase):
 
     def test_sort_scores(self):
         self.highscore = Highscore(True)
-        self.highscore.all_player_list  = list()
+        self.highscore.all_player_list = list()
         h1 = Human("bob")
         h1.highscore = 4
         h2 = Human("bob2")
@@ -57,5 +59,5 @@ class TestHighscore(unittest.TestCase):
         self.assertEqual(self.highscore.top_ten, expected_top_ten)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

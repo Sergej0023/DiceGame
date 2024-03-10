@@ -3,7 +3,7 @@ import sys
 
 
 this_dir = os.path.dirname(os.path.abspath(__file__))
-proj_dir = os.path.abspath(os.path.join(this_dir,".."))
+proj_dir = os.path.abspath(os.path.join(this_dir, ".."))
 sys.path.append(proj_dir)
 from Displays import Displays
 from Game import Game
@@ -12,22 +12,24 @@ from Computer import Computer
 from Human import Human
 from Highscores import Highscore
 
-#sets difficulty lvl and starts game vs computer
+
+# sets difficulty lvl and starts game vs computer
 def computer_mode_start(player_one, is_normal_mode, highscores_main):
     Displays.printBotMenu()
-    #easy/medium/hard mode then starts a game
+    # easy/medium/hard mode then starts a game
     input_choice = input("Enter your choice (1 to 4): ")
     if input_choice in {"1", "2", "3"}:
         player_two = Computer(input_choice)
-        pigGame = Game(player_one, player_two, is_normal_mode, highscores_main)  
+        pigGame = Game(player_one, player_two, is_normal_mode, highscores_main)
         pigGame.start_game()
-    #choice 4 goes back to main menu
+    # choice 4 goes back to main menu
     elif input_choice == "4":
         pass
     else:
         print("Enter a valid choice")
 
-#gets player2 name and starts game player vs player
+
+# gets player2 name and starts game player vs player
 def player_mode_start(player_one, is_normal_mode, highscores_main):
     player2_name = input("Enter the name of player two: ")
     player2_name = check_name(player2_name)
@@ -35,7 +37,8 @@ def player_mode_start(player_one, is_normal_mode, highscores_main):
     pigGame = Game(player_one, player_two, is_normal_mode, highscores_main)
     pigGame.start_game()
 
-#cheat mode or normal mode
+
+# cheat mode or normal mode
 def get_play_mode():
     while True:
         user_input = input("Test using cheat mode? (y/n): ")
@@ -46,13 +49,17 @@ def get_play_mode():
         else:
             print("Incorrect input")
 
-#checks input validity for usernames
+
+# checks input validity for usernames
 def check_name(name):
     if not name.isalnum():
-        return check_name(input("\nOnly letters and number allowed!"
-                         + "Enter the name again: \n"))
-    else: return name
-        
+        return check_name(
+            input("\nOnly letters and number allowed!" + "Enter the name again: \n")
+        )
+    else:
+        return name
+
+
 def main():
     is_normal_mode = get_play_mode()
     player1_name = input("\nEnter the name of player one: ")
@@ -74,7 +81,9 @@ def main():
                 new_username = input("\nNew username: ")
                 new_username = check_name(new_username)
                 player_one.change_username(new_username)
-                print(f"Your username was successfully changed to {player_one.username}")
+                print(
+                    f"Your username was successfully changed to {player_one.username}"
+                )
                 input("\nPress any key to go back to the main menu.\n")
             case "5":
                 Displays.printRules()

@@ -5,6 +5,7 @@ from PigGame import Human
 from PigGame.Computer import Computer
 from PigGame.Highscores import Highscore
 
+
 class TestGame(unittest.TestCase):
     def setUp(self):
         self.player_one = Human.Human("Alice")
@@ -39,5 +40,6 @@ class TestGame(unittest.TestCase):
         self.assertEqual(self.player_one.number_of_turns, 0)
         self.assertEqual(self.player_two.number_of_turns, 0)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

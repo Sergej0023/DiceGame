@@ -1,6 +1,8 @@
 """
 Display class: Most of the print statements are stored in display
 """
+
+
 class Displays:
 
     @staticmethod

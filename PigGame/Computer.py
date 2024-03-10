@@ -5,6 +5,8 @@ import time
 Computer Class:
 Makes a computer opponent, only function is to roll dice based on its input
 """
+
+
 class Computer:
     def __init__(self, difficulty):
         self.username = "Bob the AI"
