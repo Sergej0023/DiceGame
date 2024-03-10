@@ -4,7 +4,7 @@
 
 The game is only tested on the console, and run dirrectly in the IDE.
 The game must have at least one human player that can play against computer or another human
-Rules of the game are simple, first person to get a score of 100 wins, each turn you can roll a dice, if the dice lands on 1, the points from that turn become 0. Its a game about risk and strategy (and maybe some luck)
+Rules of the game are simple, first person to get a score of 100 wins, each turn you can roll a dice, if the dice lands on 1, the points from that turn become 0. It's a game about risk and strategy (and maybe some luck)
 
 # Controls
 
@@ -18,10 +18,10 @@ Quit -> Quits the game ("q")
 This is assignment is part of Methods for Sustainable Programming course DA115B.
 Programming Language used: Python.
 
-# For tester
+# For testers
 
-We have added a "testing mode" in which the max score is set lower than 100 to make testing various combinatiosna and modes easier.
-Generated coverage, UML charts and tests can be found in their seperate folders. For the best testing experiece use a venv to run tests 
+We have added a "testing mode" in which the max score is set lower than 100 to make testing various combinatios and modes easier.
+Generated coverage, UML charts and tests can be found in their seperate folders. For the best testing experience use a .venv to run tests 
 and to make things easier you can run the command 
 ```
 python -m pip install -r requirements.txt
