@@ -18,10 +18,10 @@ class Computer:
         match self.difficulty:
             case "1":  # Easy level
                 return self.decision_logic(40)
-            # From wikipedia, gives an 8% disadvantage
+            # From wikipedia, gives an 8% disadvantage:
             case "2":  # Medium level
                 return self.decision_logic(25)
-            # From wikipedia, those are all
+            # From wikipedia, gives a 4% disadvantage:
             case "3":  # Hard level
                 return self.decision_logic(20)
 
