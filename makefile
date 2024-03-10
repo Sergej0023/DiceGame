@@ -119,7 +119,7 @@ pyreverse:
 	dot -Tpng packages.dot -o doc/pyreverse/packages.png
 	rm -f classes.dot packages.dot
 
-doc: pdoc pyreverse #pydoc sphinx
+doc: pdoc pyreverse pydoc sphinx
 
 
 
