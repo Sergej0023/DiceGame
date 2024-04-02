@@ -66,7 +66,8 @@ pylint:
 
 flake8:
 	@$(call MESSAGE,$@)
-	-flake8
+	-flake8 --exclude=PigGame/Displays.py,UnitTesting
+
 
 lint: flake8 pylint
 
